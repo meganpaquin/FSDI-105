@@ -21,6 +21,22 @@ function createUser(){
     userinfo.user.push(amanda, matt, andy);
 }
 
+function isValid(user){
+    let valid=true;
+    if(user.email.length==0){
+        valid=false;
+        $("#email").addClass("error-input");
+    }
+    if(user.password.length==0){
+        valid=false;
+        $("#password").addClass("error-input");
+    }
+    console.log(user.lastName);
+    console.log(user.password);
+    
+    return valid;
+}
+
 function register(){
     let firstName = $("#firstName").val();
     let lastName = $("#lastName").val();
@@ -29,10 +45,18 @@ function register(){
     let password2 = $("#password2").val();
     let usercolor = $("#usercolor").val();
 
+    //is the user valid
+
+
         if(password == password2){
-            console.log(firstName, lastName, email, password, usercolor);
             let userinput = new AddUser(firstName, lastName, email, password, 'Visa', usercolor);
-            userinfo.user.push(userinput);
+            
+            if(isValid(userinput)){
+                userinfo.user.push(userinput);
+                console.log(userinfo.user);
+                saveUser(userinfo.user);
+            }
+            
         }else{
             alert('Your passwords do not match');
         }
@@ -45,6 +69,7 @@ function init(){
     createUser();
     console.log('Creating Users...')
     console.log(userinfo.user);
+    saveUser(userinfo.user);
 }
 
 window.onload=init;
