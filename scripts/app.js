@@ -46,30 +46,20 @@ function register(){
     let usercolor = $("#usercolor").val();
 
     //is the user valid
-
-
-        if(password == password2){
-            let userinput = new AddUser(firstName, lastName, email, password, 'Visa', usercolor);
+    let userinput = new AddUser(firstName, lastName, email, password, 'Visa', usercolor);
             
             if(isValid(userinput)){
                 userinfo.user.push(userinput);
-                console.log(userinfo.user);
                 saveUser(userinfo.user);
             }
-            
-        }else{
-            alert('Your passwords do not match');
-        }
     
     //clear the inputs
     $(".form-control").val("");
 }
 
 function init(){
-    createUser();
-    console.log('Creating Users...')
-    console.log(userinfo.user);
-    saveUser(userinfo.user);
+    //createUser();
+    //array issue: saveUser(Array Here);
 }
 
 window.onload=init;

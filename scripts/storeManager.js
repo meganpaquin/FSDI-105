@@ -8,12 +8,10 @@ function saveUser(userObj){
     let value = JSON.stringify(oldData);
     //send the user to the local storage
     localStorage.setItem(KEY, value);
-    console.log("test");
 }
 
 function readUsers(){
     let data = localStorage.getItem(KEY);
-    console.log(data);
     if(!data){
         return [];//creating the array
     }else{
