@@ -16,21 +16,21 @@ class AddUser {
 
 function isValid(user){
     let valid=true;
-    
-    if(typeof user.firstName === "undefined"){
+    $("input").removeClass("is-invalid");
+
+    if(user.firstname == ""){
         valid=false;
         $('#firstName').addClass("is-invalid")
-        console.log(user.firstName);
     }
-    if(typeof user.lastName === "undefined"){
+    if(user.lastname == ""){
         valid=false;
         $('#lastName').addClass("is-invalid")
     }
-    if(user.email.length ==0){
+    if(user.email == ""){
         valid=false;
         $('#email').addClass("is-invalid")
     }
-    if(typeof user.phoneNumber=== "undefined"){
+    if(user.phone === ""){
         valid=false;
         $('#phoneNumber').addClass("is-invalid")
     }
@@ -53,16 +53,11 @@ function register(){
 
     let userinput = new AddUser(firstName, lastName, email, phoneNumber, password, payment, color);
 
-       /* not working
-       
         if(isValid(userinput)){
             userinfo.user.push(userinput);
             //saveUser(userinfo.user);
             console.log(userinfo.user)
-        } */
-        userinfo.user.push(userinput);
-        console.log(userinfo.user);
-        console.log("test");
+        }
     
     //clear the inputs
     $(".form-control").val("");
