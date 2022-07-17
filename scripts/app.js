@@ -3,37 +3,41 @@ let userinfo = {
 }
 
 class AddUser {
-    constructor(firstname, lastname, email, password, payment_method, color) {
+    constructor(firstname, lastname, email, phone, password, payment_method, color) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.phone = phone;
         this.password = password;
         this.payment_method = payment_method;
         this.color = color;
     }
 }
 
-function createUser(){
-    let amanda = new AddUser('Amanda', 'Kuhn', 'amanda.kuhn@gmail.com', 'password1', 'Visa', 'Red');
-    let matt = new AddUser('Matt', 'Boring', 'matt.boring@gmail.com', 'uniqueid', 'MasterCard', 'Blue');
-    let andy = new AddUser('Andy', 'Letter', 'AL@gmail.com', 'newpw', 'Visa', 'Blue');
-
-    userinfo.user.push(amanda, matt, andy);
-}
-
 function isValid(user){
     let valid=true;
-    if(user.email.length==0){
+    $('input').removeClass('.is-invalid');
+    if(typeof user.firstName === "undefined"){
         valid=false;
-        $("#email").addClass("error-input");
+        $('#firstName').addClass("is-invalid")
     }
-    if(user.password.length==0){
+    if(typeof user.lastName === "undefined"){
         valid=false;
-        $("#password").addClass("error-input");
+        $('#lastName').addClass("is-invalid")
     }
-    console.log(user.lastName);
-    console.log(user.password);
-    
+    if(user.email.length ==0){
+        valid=false;
+        $('#email').addClass("is-invalid")
+    }
+    if(typeof user.phoneNumber=== "undefined"){
+        valid=false;
+        $('#phoneNumber').addClass("is-invalid")
+    }
+    if(user.password != $('#password2').val()){
+        valid=false;
+        $('#password2').addClass("is-invalid")
+    }
+      
     return valid;
 }
 
@@ -41,24 +45,24 @@ function register(){
     let firstName = $("#firstName").val();
     let lastName = $("#lastName").val();
     let email = $("#email").val();
+    let phoneNumber = $("#phoneNumber").val();
     let password = $("#password").val();
-    let password2 = $("#password2").val();
-    let usercolor = $("#usercolor").val();
+    let payment = $("#payment").val();
+    let color = $("#color").val();
 
-    //is the user valid
-    let userinput = new AddUser(firstName, lastName, email, password, 'Visa', usercolor);
-            
-            if(isValid(userinput)){
-                userinfo.user.push(userinput);
-                saveUser(userinfo.user);
-            }
+    let userinput = new AddUser(firstName, lastName, email, phoneNumber, password, payment, color);
+    console.log(userinput);
+        if(isValid(userinput)){
+            userinfo.user.push(userinput);
+            //saveUser(userinfo.user);
+            console.log(userinfo.user)
+        }
     
     //clear the inputs
     $(".form-control").val("");
 }
 
 function init(){
-    //createUser();
     //array issue: saveUser(Array Here);
 }
 

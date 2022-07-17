@@ -63,3 +63,39 @@
     color: black;
 }
 
+.bi-person-circle, .bi-envelope-fill, .bi-lock-fill, .bi-telephone-fill{
+    margin-right: 10px;
+}
+
+
+/*add the color selection dropdown*/
+.colorSelect > option:nth-child(2) {
+    background: #14a76c;
+}
+.colorSelect > option:nth-child(2):hover {
+    background: #14a76c !important;
+}
+.colorSelect > option:nth-child(3) {
+    background: #ffe400;
+}
+.colorSelect > option:nth-child(3):hover {
+    background: #ffe400 !important;
+}
+.colorSelect > option:nth-child(4) {
+    background: #ff652F;
+}
+.colorSelect > option:nth-child(4):hover {
+    background: #ff652F!important;
+}
+.colorSelect > option:nth-child(5) {
+    background: #747474;
+}
+.colorSelect > option:nth-child(5):hover {
+    background: #747474!important;
+}
+.colorSelect > option:nth-child(6) {
+    background: #272727;
+}
+.colorSelect > option:nth-child(6):hover {
+    background: #272727!important;
+}
