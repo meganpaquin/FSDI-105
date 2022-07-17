@@ -16,10 +16,11 @@ class AddUser {
 
 function isValid(user){
     let valid=true;
-    $('input').removeClass('.is-invalid');
+    
     if(typeof user.firstName === "undefined"){
         valid=false;
         $('#firstName').addClass("is-invalid")
+        console.log(user.firstName);
     }
     if(typeof user.lastName === "undefined"){
         valid=false;
@@ -51,12 +52,17 @@ function register(){
     let color = $("#color").val();
 
     let userinput = new AddUser(firstName, lastName, email, phoneNumber, password, payment, color);
-    console.log(userinput);
+
+       /* not working
+       
         if(isValid(userinput)){
             userinfo.user.push(userinput);
             //saveUser(userinfo.user);
             console.log(userinfo.user)
-        }
+        } */
+        userinfo.user.push(userinput);
+        console.log(userinfo.user);
+        console.log("test");
     
     //clear the inputs
     $(".form-control").val("");
