@@ -1,21 +1,57 @@
 const KEY="users";
-function saveUser(userObj){
+let i;
+function saveUser(userArray){
     //read the current local storage
-    let oldData = readUsers();
-    //add new data
-    oldData.push(userObj);
-    //turn the object into a string
-    let value = JSON.stringify(oldData);
-    //send the user to the local storage
+    readUsers();
+    let oldArray = download;
+    validateArray(userArray, oldArray);
+    //turn the objects into a string
+    let value = JSON.stringify(oldArray);
+    //send the string to local storage
     localStorage.setItem(KEY, value);
 }
 
-function readUsers(){
-    let data = localStorage.getItem(KEY);
-    if(!data){
-        return [];//creating the array
+function validateArray(newArray, oldArray){
+    oldArray = download;
+        for(i=0; i<newArray.length; i++){
+            if(newArray[i] != oldArray[i]){
+               oldArray[i] = (newArray[i]);
+            }
+        }
+}
+
+function readUsersInit(){
+    //get the current local storage users
+    storageData = localStorage.getItem('users');
+    //check if there is data and set it to our array
+    if(!storageData){
+        userinfo.user=[];
+        console.log("there was nothing")
     }else{
-        let list = JSON.parse(data);
-        return list
+        let newObject = JSON.parse(storageData);
+        userinfo.user = [];
+        download = [];
+            newObject.forEach(element => {
+                userinfo.user.push(element);
+                download.push(element);
+            })
+        console.log("there was something")
+    }
+}
+
+function readUsers(){
+    //get the current local storage users
+    storageData = localStorage.getItem('users');
+    //check if there is data and set it to our array
+    if(!storageData){
+        userinfo.user=[];
+        console.log("there was nothing")
+    }else{
+        let newObject = JSON.parse(storageData);
+        download = [];
+            newObject.forEach(element => {
+                download.push(element);
+            })
+        console.log("there was something")
     }
 }

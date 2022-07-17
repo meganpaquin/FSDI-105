@@ -1,6 +1,7 @@
 let userinfo = {
     user:[]
 }
+let download=[];
 
 class AddUser {
     constructor(firstname, lastname, email, phone, password, payment_method, color) {
@@ -55,8 +56,7 @@ function register(){
 
         if(isValid(userinput)){
             userinfo.user.push(userinput);
-            //saveUser(userinfo.user);
-            console.log(userinfo.user)
+            saveUser(userinfo.user);
         }
     
     //clear the inputs
@@ -64,7 +64,7 @@ function register(){
 }
 
 function init(){
-    //array issue: saveUser(Array Here);
+    readUsersInit();
 }
 
 window.onload=init;
