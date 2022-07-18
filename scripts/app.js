@@ -57,10 +57,13 @@ function register(){
         if(isValid(userinput)){
             userinfo.user.push(userinput);
             saveUser(userinfo.user);
+            $("#myModal").modal('hide');
         }
     
     //clear the inputs
     $(".form-control").val("");
+    displayUsers();
+    
 }
 
 function init(){
