@@ -15,21 +15,21 @@
     <link rel="stylesheet" href="styles/style.css">
     
 </head>
-<body class="body" onload="displayUsers()">
+<body class='body' onload="displayUsers()">
 
-    <div class="container container-resize"> 
+    <div class='container container-resize'> 
 
     
     <nav>
-        <button class="nav-btn" onclick="window.location.href='index.html';"><i class="bi bi-house-door-fill"></i>
+        <button class='nav-btn'><a href="index.html"><i class='bi bi-house-door-fill'></i></a>
         </button>
-        <button type="button" class="nav-btn" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-plus-circle-fill"></i></button>
+        <button type='button' class='nav-btn' data-bs-toggle='modal' data-bs-target='#myModal'><i class='bi bi-plus-circle-fill'></i></button>
 
      
     </nav>
 
-    <div class="container container-table">
-        <table class="table table-hover">
+    <div class='container container-table'>
+        <table class='table table-hover'>
             <thead>
                 <tr>
                   <th scope="col">First Name</th>
@@ -39,7 +39,7 @@
                   <th scope="col">Payment</th>
                 </tr>
               </thead>
-              <tbody id="userTable">
+              <tbody id='userTable'>
 
               </tbody>
         </table>
@@ -92,7 +92,8 @@
               <div class="form-floating mb-2">
                 <input type="password" class="form-control form-control-sm" id="password2" placeholder="Enter a password" required>
                 <label for="password2"><i class="bi bi-lock-fill"></i>Retype Password</label>
-                <div id="pwHelp2" class="form-text">Passwords must match</div>
+                <div id="pwValid" class="form-text">Passwords must match</div>
+                <div id="pwInvalid" class="invalid-feedback">Your passwords do not match</div>
               </div>
 
               <div class="form-floating">

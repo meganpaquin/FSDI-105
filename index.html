@@ -18,7 +18,7 @@
 
 <main id="index-main">
     <div class="container home-btns">
-        <button class="nav-btn" ><a href="users.html"><i class="bi bi-people-fill"></i></a></button>
+        <button class="nav-btn" type="button" class="nav-btn" data-bs-toggle="modal" data-bs-target="#signInModal"><i class="bi bi-people-fill"></i></button>
         <button type="button" class="nav-btn" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-plus-circle-fill"></i></button>
     </div>
 
@@ -58,7 +58,8 @@
                   <div class="form-floating mb-2">
                     <input type="password" class="form-control form-control-sm" id="password" placeholder="Enter a password" required>
                     <label for="password"><i class="bi bi-lock-fill"></i>Password</label>
-                    <div id="pwHelp" class="form-text">Password must be 8 charachters and include a number</div>
+                    <div id="pwValid" class="form-text">Passwords must match</div>
+                    <div id="pwInvalid" class="invalid-feedback">Your passwords do not match</div>
                   </div>
 
                   <div class="form-floating mb-2">
@@ -99,6 +100,36 @@
           </div>
         </div>
     </div>
+
+    <!--sign in modal-->
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="card">
+            <div class="card-body">
+              <br>
+              <h5 class="card-title text-center">Login</h5>
+              <br>
+              <div class="form-floating mb-2">
+                <input type="email" class="form-control form-control-sm" id="loginEmail" placeholder="Enter your email" required>
+                <label for="loginEmail"><i class="bi bi-envelope-fill"></i>Email</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="password" class="form-control form-control-sm" id="loginPassword" placeholder="Enter a password" required>
+                <label for="loginPassword"><i class="bi bi-lock-fill"></i>Password</label>
+                <div id="loginValid" class="form-text">Please enter your login information</div>
+                <div id="loginInvalid" class="invalid-feedback">Your login information was incorrect</div>
+              </div>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary" onclick="login()">Register</a>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+
+
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js
