@@ -1,2 +1,2 @@
-# FSDI-105
-Learning jQuery and JavaScript
+# Data Management Via Browser Storage
+
